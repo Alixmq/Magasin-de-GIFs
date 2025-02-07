@@ -160,6 +160,17 @@ def payment():
 
     return render_template('payment.html', panier=panier)
 
+@app.route("/contact")
+def contact():
+    return redirect("https://github.com/Alixmq/Magasin-de-GIFs")
+
+@app.route("/mentions-legales")
+def mentions_legales():
+    return render_template("mentions-legales.html")
+
+@app.route("/confidentialite")
+def confidentialite():
+    return render_template("confidentialite.html")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
