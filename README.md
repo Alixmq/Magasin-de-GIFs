@@ -25,11 +25,13 @@ Assurez-vous d'avoir **Python 3** installé sur votre machine.
 ### 2️⃣ Installation des dépendances  
 ```bash
 python3 -m pip install Flask
-
+```
 ### 3️⃣ Création et activation d'un environnement virtuel
+```bash
 python3 -m venv .venv
 source .venv/bin/activate  # (Sur macOS/Linux)
 .venv\Scripts\activate     # (Sur Windows)
+```
 
 ### 4️⃣ Lancement du serveur Flask 
 python3 app.py
