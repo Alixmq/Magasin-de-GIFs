@@ -9,18 +9,15 @@ app = Flask(__name__)
 app.secret_key = "clef_secrète" 
 app.permanent_session_lifetime = timedelta(minutes=30)
 
-# Chemin vers le fichier JSON contenant le catalogue
 DATA_PATH = os.path.join("data", "gifs.json")
 
 def generate_captcha():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
-# Charger le catalogue
 def load_catalog():
     with open(DATA_PATH, "r") as file:
         return json.load(file)
 
-# Sauvegarder les données
 def save_catalog(data):
     with open(DATA_PATH, "w") as file:
         json.dump(data, file, indent=4)
@@ -32,7 +29,6 @@ def home():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
-        # Générer un nouveau captcha à chaque affichage du formulaire
         session['captcha'] = generate_captcha()
         return render_template("login.html", captcha=session['captcha'])
         
@@ -41,18 +37,23 @@ def login():
         password = request.form.get("password")
         user_captcha = request.form.get("captcha")
 
-        # Vérifier d'abord le captcha
         if not user_captcha or user_captcha != session.get('captcha'):
-            session['captcha'] = generate_captcha()  # Générer un nouveau captcha
+            session['captcha'] = generate_captcha()
             return "Captcha incorrect!", 401
 
-        # Ensuite vérifier les identifiants
-        if username == "quelBG" and password == "JTM<3": 
+        users = {
+            "Delta": "Ioritz",
+            "Risi": "Richard",
+            "Leroy": "Tangui",
+            "stagiaire": "Remi",
+            "Apasyli": "Alix"
+        }
+
+        if username in users and users[username] == password:
             session["user"] = username 
             return redirect(url_for("admin"))
         
-        # Si les identifiants sont incorrects
-        session['captcha'] = generate_captcha()  # Générer un nouveau captcha
+        session['captcha'] = generate_captcha()
         return "Identifiants incorrects !", 401
 
     return render_template("login.html")
@@ -114,11 +115,9 @@ def add_gif():
     
     data = load_catalog()
     new_gif = request.json
-    # Vérifier que l'ID est unique
     if any(gif["id"] == new_gif["id"] for gif in data):
         return jsonify({"success": False, "message": "L'ID existe déjà"}), 400
     
-    # Ajouter le nouveau gif
     data.append(new_gif)
     save_catalog(data)
     return jsonify({"success": True})
