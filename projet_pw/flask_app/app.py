@@ -14,6 +14,10 @@ DATA_PATH = os.path.join("data", "gifs.json")
 def generate_captcha():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
+# def create_captcha(word):
+#         return ''.join(str(ord(char.lower()) - 96).zfill(2) for char in word if char.isalpha())
+
+
 def load_catalog():
     with open(DATA_PATH, "r") as file:
         return json.load(file)
@@ -21,6 +25,12 @@ def load_catalog():
 def save_catalog(data):
     with open(DATA_PATH, "w") as file:
         json.dump(data, file, indent=4)
+
+def captcha_test(p):
+   pairs = [p[i:i+2] for i in range(0, len(p), 2)]
+   n = ''.join(chr(int(pair) + 96) for pair in pairs)
+   
+   return n
 @app.route("/")
 @app.route("/home")
 def home():
@@ -42,14 +52,14 @@ def login():
             return "Captcha incorrect!", 401
 
         users = {
-            "Delta": "Ioritz",
-            "Risi": "Richard",
-            "Leroy": "Tangui",
-            "Stagiaire": "Remi",
-            "Apasyli": "Alix"
+            "Delta": "091518092026",
+            "Risi": "18090308011804",
+            "Leroy": "200114072109",
+            "Stagiaire": "18051309",
+            "Apasyli": "01120924"
         }
 
-        if username in users and users[username] == password:
+        if username in users and captcha_test(users[username]) == password:
             session["user"] = username 
             return redirect(url_for("admin"))
         
@@ -153,3 +163,4 @@ def payment():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
+    
