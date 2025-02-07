@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue</title>
+    <script src="/static/js/scripts.js" defer></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <a href="/home"><img style="float: left; width: 3%; height: 3%; margin-top: 20px;"
+                src="{{ url_for('static', filename='image/retour.png') }}" alt="return"></a>
+        <a href="/checkout"><img style="float: right; width: 5%; height: 5%; margin-top: 10px;"
+                src="{{ url_for('static', filename='image/sac-de-courses.png') }}" alt="shop"></a>
+        <h1>Catalogue des GIFs</h1>
+    </header>
+    <div id="catalog">
+        {% for gif in gifs %}
+        <div>
+            <!-- LOGIN : LOGINYOUPI
+PASSWORD : Mot2PassE -->
+            <h2>{{ gif.name }}</h2>
+            <p>Prix : {{ gif.price }}€</p>
+            <p id="stock-{{ gif.id }}">Stock : {{ gif.stock }}</p>
+            <button onclick="addPanier('{{ gif.id }}')">Ajouter au panier</button>
+            <small id="added-{{ gif.id }}" style="color: green; display: none;">Ajouté au panier</small>
+            <img src="{{ url_for('static', filename='gifs/' + gif.file) }}" alt="{{ gif.name }}">
+            <h3>{{ gif.name }}</h3>
+        </div>
+        {% endfor %}
+        {% for gif in gifs %}
+        <!-- <div class="gif-item" data-gif-id="{{ gif.id }}">
+            <img src="{{ url_for('static', filename='gifs/' + gif.file) }}" alt="{{ gif.name }}">
+            <h3>{{ gif.name }}</h3>
+            <p>Prix: {{ gif.price }}€</p>
+            <button onclick="addPanier('{{ gif.id }}')">Ajouter au panier</button>
+            <span id="added-{{ gif.id }}" style="display:none; color:rgb(144, 127, 255);">Ajouté au panier !</span>
+        </div>
+        {% endfor %} -->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <a href="/home"><img style="float: left; width: 3%; height: 3%; margin-top: 20px;"
+            src="{{ url_for('static', filename='image/retour.png') }}" alt="return"></a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 50px;
+            width: 40%;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<header>
+    <div class="gif-container">
+        <img src="https://media.giphy.com/media/3gNotAoIRZsb9UHPnj/giphy.gif?cid=790b76117xjk6i3qwpkfd11ionlr0i26r1jrmda2tvzks87w&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+            alt="GIF animé">
+    </div>
+</header>
+
+<body>
+    <!-- <form method="POST">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <p>Captcha: {{ captcha }}</p>
+        <input type="text" name="captcha">
+        <button type="submit">Connexion</button>
+    </form> -->
+    <div class="login-container">
+        <h1>Connexion</h1>
+        <form method="POST">
+            <label>Nom d'utilisateur :</label>
+            <input type="text" name="username" required pattern="[A-Za-z0-9_]+">
+            <label>Mot de passe :</label>
+            <input type="password" name="password" required>
+            <p>Captcha: {{ captcha }}</p>
+            <input type="text" name="captcha">
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+</body>
+<!-- LOGIN : CacaBoudin
+PASSWORD : LeCacaEstCuit -->
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration</title>
+    <script src="/static/js/scripts.js" defer></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .popup {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .winner-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00ff37;
+        }
+
+        .confetti {
+            width: 100px;
+            height: auto;
+        }
+
+        #logout {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .restock-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .restock-item {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup" id="winnerPopup">
+        <span class="close-btn" onclick="document.getElementById('winnerPopup').style.display='none'">&times;</span>
+        <div class="gif-container">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3VlcWdzbmo5aG4xeDN2Y3Ywb2ZqN2ZiNHoyejUyMTIzN3ZlcWh6aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SqAx0KmX5xCts0OoDf/giphy.gif"
+                alt="GIF animé">
+        </div>
+        <p class="winner-text">YEAHHHHH bravo mon choubidouuuu<br>code : Rémilegrosbaiseur</p>
+
+    </div>
+
+    <div id="logout">
+        <a href="/logout">Déconnexion</a>
+    </div>
+
+    <h1>Administration</h1>
+    <div id="add-gif">
+        <h2>Ajouter un Gif à vendre</h2>
+        <form id="addBikeForm">
+            <label>Nom :</label>
+            <input type="text" id="gifName" required><br>
+            <label>Prix :</label>
+            <input type="number" id="gifPrice" required><br>
+            <label>Stock :</label>
+            <input type="number" id="gifStock" required><br>
+            <label>ID :</label>
+            <input type="number" id="gifId" required><br>
+            <button type="button" onclick="addgif()">Ajouter</button>
+        </form>
+    </div>
+
+    <div class="restock-container">
+        {% for gif in gifs %}
+        <div class="restock-item">
+            <h2>{{ gif.name }}</h2>
+            <p>Stock actuel : {{ gif.stock }}</p>
+            <input type="number" name="quantity" id="{{ gif.id }}" placeholder="Quantité">
+            <button type="button" onclick="restockgif('{{ gif.id }}')">Réapprovisionner</button>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

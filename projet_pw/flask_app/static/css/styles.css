@@ -1,0 +1,89 @@
+/* Style consistants */
+body {
+    line-height: 1.6;
+    margin: 0;
+    background-image: linear-gradient(180deg, #f7f7f7 75%, #d01bdd 100%);
+    background-attachment: fixed;
+    color: #333;
+}
+
+h1 {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #caa5fe;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Catalogue */
+#catalog img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#catalog {
+    overflow-x: scroll;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding: 10px 20px;
+    align-items: normal;
+    display: flex;
+    justify-content: space-around;
+}
+
+#catalog h2 {
+    font-family: 'Noto Sans', sans-serif;
+    color: #264653;
+}
+
+#catalog div {
+    margin-right: 10px;
+    display: grid;
+    border: 4mm ridge rgb(127, 170, 255);
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#catalog button {
+    transition-duration: 0.3s;
+    background-color: #5a04aa;
+    border: 2px solid #d28aff;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+
+
+}
+
+#catalog button:hover {
+    background-color: #f7f7f7;
+    color: #333;
+
+}
+
+/* Front Page */
+#front {
+    text-align: center;
+}
+
+#front a:link {
+    color: rgb(149, 99, 202);
+}
+
+#front a:visited {
+    color: rgb(80, 93, 144);
+}
+
+#front a:hover {
+    color: rgb(178, 90, 255);
+}
+
+#front a:active {
+    color: #05058f;
+}

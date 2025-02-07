@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- LOGIN : administrateurKawaii
+PASSWORD : lol123 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+    <script src="/static/js/scripts.js" defer></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .payment-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 50px;
+            width: 50%;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: #007BFF;
+            color: white;
+        }
+
+        header img {
+            height: 30px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/home"><img style="float: left; width: 3%; height: 3%; margin-top: 20px;"
+                src="{{ url_for('static', filename='image/retour.png') }}" alt="return"></a>
+
+        <h1>Page de Paiement</h1>
+    </header>
+    <div class="payment-container">
+        <h3>Votre panier</h3>
+        {% for item in panier %}
+        <p>{{ item.name }} - {{ item.price }} x {{ item.quantity }}</p>
+        {% endfor %}
+        <form id="paymentForm" onsubmit="return validateForm()">
+            <label>Nom :</label>
+            <input type="text" id="nomCheckout" required>
+            <label>Prénom :</label>
+            <input type="text" id="prenomCheckout" required>
+            <label>Email :</label>
+            <input type="text" id="emailCheckout" required oninput="checkEmail()">
+            <small id="emailError" style="color: red; display: none;">Email invalide</small>
+            <label>N° de carte :</label>
+            <input type="text" id="carteCheckout" required>
+            <button type="submit">Valider le paiement</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Giga Chatde",
+        "price": 8,
+        "stock": 100,
+        "file": "GigaChatde.gif"
+    },
+    {
+        "id": 2,
+        "name": "Peter Griffin botox\u00e9",
+        "price": 9999999,
+        "stock": 10,
+        "file": "PeterGriffinBotox.gif"
+    },
+    {
+        "id": 3,
+        "name": "Foufou crazy",
+        "price": 9999,
+        "stock": 1000,
+        "file": "FoufouCrazy.gif"
+    },
+    {
+        "id": 4,
+        "name": "Crazy foufou",
+        "price": 600,
+        "stock": 9,
+        "file": "Crazyfoufou.gif"
+    },
+    {
+        "id": 5,
+        "name": "Dingo crazy",
+        "price": 3,
+        "stock": 12,
+        "file": "DingoCrazy.gif"
+    },
+    {
+        "id": 6,
+        "name": "Crazy",
+        "price": 56,
+        "stock": 10,
+        "file": "crazy.gif"
+    },
+    {
+        "id": 7,
+        "name": "Le puant",
+        "price": 555,
+        "stock": 53,
+        "file": "actually.gif"
+    },
+    {
+        "id": 8,
+        "name": "Chat fou",
+        "price": 309,
+        "stock": 102,
+        "file": "Chatfou.gif"
+    }
+]

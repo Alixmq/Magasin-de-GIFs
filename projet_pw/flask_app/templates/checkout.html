@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <script src="/static/js/scripts.js" defer></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="/catalog"><img style="float: left; width: 3%; height: 3%; margin-top: 20px;" src="{{ url_for('static', filename='image/retour.png') }}" alt="return"></a>
+        <h1>Votre panier</h1>
+    </header>
+    <div id="checkoutPanier">
+        <!-- Le contenu du panier sera injecté ici -->
+    </div>
+    <button id="payerButton" onclick="redirectToPayment()">Payer</button>
+</body>
+</html>

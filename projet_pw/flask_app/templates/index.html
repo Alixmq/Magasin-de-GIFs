@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magasin de GIFs</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        #front {
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .gif-container {
+            margin: 20px 0;
+        }
+
+        .link-container a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: #ff20cb;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 10px;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+
+        .link-container a:hover {
+            background: #ff20cb;
+        }
+
+        .admin-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #FF5733;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .admin-link:hover {
+            background: #C70039;
+        }
+
+        /* Styles du bouton en bas à droite */
+        .popup-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #008CBA;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .popup-btn:hover {
+            background: #005f73;
+        }
+
+        /* Styles du popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/admin" class="admin-link">Section administrateur</a>
+    <div id="front">
+        <h1>Bienvenue dans notre magasin de GIFs</h1>
+        <div class="gif-container">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2ZoNm1wdWVzb28wNjhpdm84MDJ3YXpjdWNmb2ZubDlhdGExZXN5eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1APhATvqD65r966yCP/giphy.gif"
+                alt="GIF animé">
+        </div>
+        <div class="link-container">
+            <a href="/catalog">Consulter le catalogue</a>
+        </div>
+    </div>
+
+    <!-- Bouton pour ouvrir le popup -->
+    <button class="popup-btn" onclick="openPopup()">Remerciements</button>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <button class="close" onclick="closePopup()">X</button>
+        <p>Merci à Ioritz Tridera, Richard Simon et Tangui Samson !</p>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
