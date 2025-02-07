@@ -45,7 +45,7 @@ def login():
             "Delta": "Ioritz",
             "Risi": "Richard",
             "Leroy": "Tangui",
-            "stagiaire": "Remi",
+            "Stagiaire": "Remi",
             "Apasyli": "Alix"
         }
 

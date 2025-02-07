@@ -57,6 +57,14 @@
         button:hover {
             background: #0056b3;
         }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <header>
@@ -67,18 +75,19 @@
 </header>
 
 <body>
-    <!-- <form method="POST">
-        <input type="text" name="username">
-        <input type="password" name="password">
-        <p>Captcha: {{ captcha }}</p>
-        <input type="text" name="captcha">
-        <button type="submit">Connexion</button>
-    </form> -->
     <div class="login-container">
         <h1>Connexion</h1>
         <form method="POST">
             <label>Nom d'utilisateur :</label>
-            <input type="text" name="username" required pattern="[A-Za-z0-9_]+">
+            <select name="username" required>
+                <option value="">Sélectionnez un utilisateur</option>
+                <option value="Risi">Risi</option>
+                <option value="Leroy">Leroy</option>
+                <option value="Delta">Delta</option>
+                <option value="Stagiaire">Stagiaire</option>
+                <option value="Apasyli">Apasyli</option>
+
+            </select>
             <label>Mot de passe :</label>
             <input type="password" name="password" required>
             <p>Captcha: {{ captcha }}</p>
@@ -87,6 +96,8 @@
         </form>
     </div>
 </body>
+
+</html>
 <!-- LOGIN : CacaBoudin
 PASSWORD : LeCacaEstCuit -->
 
