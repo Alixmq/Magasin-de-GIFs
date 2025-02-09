@@ -14,8 +14,8 @@ DATA_PATH = os.path.join("data", "gifs.json")
 def generate_captcha():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
-# def create_captcha(word):
-#         return ''.join(str(ord(char.lower()) - 96).zfill(2) for char in word if char.isalpha())
+def create_captcha(word):
+        return ''.join(str(ord(char.lower()) - 96).zfill(2) for char in word if char.isalpha())
 
 
 def load_catalog():
@@ -52,11 +52,11 @@ def login():
             return "Captcha incorrect!", 401
 
         users = {
-            "Delta": "091518092026",
-            "Risi": "18090308011804",
-            "Leroy": "200114072109",
-            "Stagiaire": "18051309",
-            "Apasyli": "01120924"
+            "Delta": "09151809202612051605200920052021040901142007180122051925131601",
+            "Risi": "18091909120506180514030813151419200518",
+            "Leroy": "200114072109120507150120",
+            "Stagiaire": "180513091205020713090113",
+            "Apasyli": "12050301030105192003210920"
         }
 
         if username in users and captcha_test(users[username]) == password:
